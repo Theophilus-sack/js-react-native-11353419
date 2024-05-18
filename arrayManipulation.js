@@ -1,37 +1,36 @@
 function processArray(arr) {
-  let processedArray = [];
-  for (let num of arr) {
-    if (num % 2 === 0) {
-      processedArray.push(num ** 2);
-    } else {
-      processedArray.push(num * 3);
-    }
-  }
-  return processedArray;
+  return arr.map(num => {
+      if (num % 2 === 0) {
+      
+          return num * num;
+      } else {
+    
+          return num * 3;
+      }
+  });
 }
 
-let inputArray = [11, 22, 30, 16];
-let outputArray = processArray(inputArray);
-console.log(outputArray);
 
-function formatArrayStrings(Strings, Numbers) {
-  const formattedStrings = [];
-  for (let i = 0; i < Strings.length; i++) {
-    const string = Strings[i];
-    const number = Numbers[i];
-    if (number % 2 === 0) {
-      formattedStrings.push(string.toUpperCase());
-    } else {
-      formattedStrings.push(string.toLowerCase());
-    }
-  }
-  return formattedStrings;
+
+
+function formatArrayStrings(strArr, numArr) {
+  return strArr.map((str, index) => {
+      const num = numArr[index];
+      if (num % 2 === 0) {
+          return str.toUpperCase();
+      } else {
+          return str.toLowerCase();
+      }
+  });
 }
 
-const originalStrings = ["This”,  “Is”, “Very”, “Amazing"];
-const processedNumbers = [11, 22, 30, 16];
 
-const formattedStrings = formatArrayStrings(originalStrings, processedNumbers);
 
-console.log("Original Strings:", originalStrings);
-console.log("Formatted Strings:", formattedStrings);
+const numbers = [11, 22, 30, 16, 5];
+const processedNumbers = processArray(numbers);
+console.log(processedNumbers);  
+
+
+const strings = ["This", "Is", "Very", "Amazing", "Indeed"];
+const formattedStrings = formatArrayStrings(strings, processedNumbers);
+console.log(formattedStrings);  
