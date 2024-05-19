@@ -1,22 +1,26 @@
-function createUserProfiles(names, modifiedNames) {
-    const userProfiles = [];
-    let id = 1;
-    for (let i = 0; i < names.length; i++) {
-      const originalName = names[i];
-      const modifiedName = modifiedNames[i];
-      userProfiles.push({
-        originalName,
-        modifiedName,
-        id,
-      });
-      id++;
-    }
-    return userProfiles;
+function createUserProfiles(originalNames, modifiedNames) {
+  const userProfiles = [];
+  for (let i = 0; i < originalNames.length; i++) {
+      const userProfile = {
+          originalName: originalNames[i],
+          modifiedName: modifiedNames[i],
+          id: i + 1, 
+      };
+      userProfiles.push(userProfile);
   }
-  
-  const names = ["Gabriel", "Clinton ", "James", "Sussana"];
-  const modifiedNames = ["gabriel", "clinton", "james", "sussana"];
-  
-  const profiles = createUserProfiles(names, modifiedNames);
-  
-  console.log(profiles);
+  return userProfiles;
+}
+
+
+const originalNames = ["Gabriel", "Clinton", "James"];
+const modifiedNames = ["Gabriel", "Clinton", "James"];
+
+
+const profiles = createUserProfiles(originalNames, modifiedNames);
+
+
+
+profiles.forEach(profile => {
+  console.log(profile);
+});
+
